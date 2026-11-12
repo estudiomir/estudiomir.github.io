@@ -85,7 +85,11 @@ ul.plain { list-style: none; margin: 0; padding: 0; }
 .sub { list-style: none; margin: 0.4rem 0 0; padding: 0; display: grid; gap: 0.1rem; }
 .sub a { color: var(--muted); }
 .sub a:hover { color: var(--ink); text-decoration: none; }
-.index-foot { margin-top: auto; padding-block: 1.5rem; display: flex; gap: 1rem; }
+.index-foot { margin-top: auto; padding-block: 1.5rem; display: flex; align-items: center; gap: 0.9rem; }
+.ig { display: inline-grid; place-items: center; color: var(--ink); }
+.ig svg { width: 1rem; height: 1rem; fill: currentColor; display: block; }
+.ig:hover { color: var(--muted); }
+.ig-head { display: none; }
 
 /* ---------- main ---------- */
 main { min-width: 0; padding-bottom: 0; }
@@ -97,12 +101,10 @@ main { min-width: 0; padding-bottom: 0; }
 .intro { row-gap: 2rem; padding-top: 0.45rem; scroll-margin-top: 1.5rem; }
 .intro h2, .ph-title h2 { font-size: var(--t-s); font-weight: 600; margin: 0 0 0.6rem; }
 .intro p + p { margin-top: 0.8rem; }
-.i-perfil { grid-column: 1 / span 4; }
+.i-perfil { grid-column: 1 / span 5; }
 .i-perfil p { max-width: 58ch; }
-.i-serv { grid-column: 6 / span 2; }
-.i-colab { grid-column: 8 / span 3; }
-.i-contact { grid-column: 11 / span 2; }
-.colab li { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 0.8fr); gap: 0.75rem; }
+.i-serv { grid-column: 7 / span 3; }
+.i-contact { grid-column: 10 / span 3; }
 
 /* ---------- cover ---------- */
 .cover-frame {
@@ -147,13 +149,9 @@ main { min-width: 0; padding-bottom: 0; }
 .intro + .project { margin-top: 5.5rem; }
 .project-head { row-gap: 1.5rem; align-items: start; }
 .ph-title { grid-column: 1 / span 3; }
-.ph-text { grid-column: 4 / span 5; }
+.ph-text { grid-column: 4 / span 6; }
 .ph-text p { max-width: 60ch; }
 .ph-text p + p { margin-top: 0.8rem; }
-.ph-credits { grid-column: 10 / span 3; margin: 0; display: grid; gap: 0.2rem; }
-.ph-credits div { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr); gap: 0.75rem; }
-.ph-credits dt { color: var(--muted); }
-.ph-credits dd { margin: 0; }
 
 .plates { row-gap: 3.75rem; margin-top: 2.25rem; align-items: start; }
 .plates > * { grid-column-end: span 12; min-width: 0; }
@@ -165,6 +163,7 @@ main { min-width: 0; padding-bottom: 0; }
 .plates > [style*="--start"] { grid-column-start: var(--start); }
 
 .plate, .thumb { margin: 0; min-width: 0; }
+.plate video { display: block; width: 100%; height: auto; background: var(--tint); }
 .plate-btn {
   display: block;
   width: 100%;
@@ -212,9 +211,8 @@ figcaption {
   color: var(--muted);
   row-gap: 0.4rem;
 }
-.f1 { grid-column: 1 / span 4; }
-.f2 { grid-column: 6 / span 4; }
-.f3 { grid-column: 11 / span 2; }
+.f1 { grid-column: 1 / span 6; }
+.f3 { grid-column: 10 / span 3; }
 .site-foot a { color: var(--ink); }
 
 /* ---------- lightbox ---------- */
@@ -261,11 +259,9 @@ figcaption {
 @media (max-width: 1199px) {
   .i-perfil { grid-column: 1 / span 7; }
   .i-serv { grid-column: 9 / span 4; }
-  .i-colab { grid-column: 1 / span 7; }
   .i-contact { grid-column: 9 / span 4; }
   .ph-title { grid-column: 1 / span 4; }
   .ph-text { grid-column: 5 / span 8; }
-  .ph-credits { grid-column: 5 / span 8; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: var(--gap); }
   .before-label { grid-column: 1 / span 4; }
   .before-row { grid-column: 5 / -1; grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
@@ -329,6 +325,8 @@ figcaption {
   .nav-list { font-size: 1.25rem; gap: 1.75rem; letter-spacing: -0.01em; }
   .sub { font-size: var(--t-s); letter-spacing: 0; gap: 0.25rem; margin-top: 0.6rem; }
   .index-foot { display: none; }
+  .ig-head { display: inline-grid; width: 2.75rem; height: 2.75rem; margin-left: auto; }
+  .ig-head svg { width: 1.2rem; height: 1.2rem; }
 
   .cover-frame {
     height: calc(100vh - 3.95rem - 2.6rem);
@@ -339,16 +337,13 @@ figcaption {
   .slide[data-set="tall"] { display: grid; }
   .cover + .intro { margin-top: 3.5rem; }
   .intro { padding-top: 1.5rem; row-gap: 1.75rem; }
-  .i-perfil, .i-colab { grid-column: 1 / -1; }
+  .i-perfil { grid-column: 1 / -1; }
   .i-serv { grid-column: 1 / span 6; }
   .i-contact { grid-column: 7 / span 6; }
-  .i-colab { order: 3; }
 
   .project { margin-top: 5.5rem; }
   .project-head { row-gap: 1.25rem; }
-  .ph-title, .ph-text, .ph-credits { grid-column: 1 / -1; }
-  .ph-credits { grid-template-columns: minmax(0, 1fr); row-gap: 0.2rem; }
-  .ph-credits div { grid-template-columns: 8.5rem minmax(0, 1fr); }
+  .ph-title, .ph-text { grid-column: 1 / -1; }
 
   .plates { row-gap: 2rem; margin-top: 1.75rem; }
   .plates > [data-span], .plates > [data-span][style*="--start"] { grid-column: 1 / -1; }
@@ -359,7 +354,7 @@ figcaption {
   .before-label .muted { max-width: none; }
 
   .site-foot { margin-top: 5rem; }
-  .f1, .f2, .f3 { grid-column: 1 / -1; }
+  .f1, .f3 { grid-column: 1 / -1; }
 }
 </style>
 <link rel="canonical" href="https://estudiomir.com/">
@@ -419,24 +414,25 @@ figcaption {
 <div class="site">
   <aside class="index">
     <h1 class="mark-h"><a class="mark" href="#perfil"><b>MIR</b> estudio</a></h1>
+    <a class="ig ig-head" href="https://www.instagram.com/estudiomir_/" target="_blank" rel="noopener" aria-label="Instagram de MIR estudio"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M7.0301.084c-1.2768.0602-2.1487.264-2.911.5634-.7888.3075-1.4575.72-2.1228 1.3877-.6652.6677-1.075 1.3368-1.3802 2.127-.2954.7638-.4956 1.6365-.552 2.914-.0564 1.2775-.0689 1.6882-.0626 4.947.0062 3.2586.0206 3.6671.0825 4.9473.061 1.2765.264 2.1482.5635 2.9107.308.7889.72 1.4573 1.388 2.1228.6679.6655 1.3365 1.0743 2.1285 1.38.7632.295 1.6361.4961 2.9134.552 1.2773.056 1.6884.069 4.9462.0627 3.2578-.0062 3.668-.0207 4.9478-.0814 1.28-.0607 2.147-.2652 2.9098-.5633.7889-.3086 1.4578-.72 2.1228-1.3881.665-.6682 1.0745-1.3378 1.3795-2.1284.2957-.7632.4966-1.636.552-2.9124.056-1.2809.0692-1.6898.063-4.948-.0063-3.2583-.021-3.6668-.0817-4.9465-.0607-1.2797-.264-2.1487-.5633-2.9117-.3084-.7889-.72-1.4568-1.3876-2.1228C21.2982 1.33 20.628.9208 19.8378.6165 19.074.321 18.2017.1197 16.9244.0645 15.6471.0093 15.236-.005 11.977.0014 8.718.0076 8.31.0215 7.0301.0839m.1402 21.6932c-1.17-.0509-1.8053-.2453-2.2287-.408-.5606-.216-.96-.4771-1.3819-.895-.422-.4178-.6811-.8186-.9-1.378-.1644-.4234-.3624-1.058-.4171-2.228-.0595-1.2645-.072-1.6442-.079-4.848-.007-3.2037.0053-3.583.0607-4.848.05-1.169.2456-1.805.408-2.2282.216-.5613.4762-.96.895-1.3816.4188-.4217.8184-.6814 1.3783-.9003.423-.1651 1.0575-.3614 2.227-.4171 1.2655-.06 1.6447-.072 4.848-.079 3.2033-.007 3.5835.005 4.8495.0608 1.169.0508 1.8053.2445 2.228.408.5608.216.96.4754 1.3816.895.4217.4194.6816.8176.9005 1.3787.1653.4217.3617 1.056.4169 2.2263.0602 1.2655.0739 1.645.0796 4.848.0058 3.203-.0055 3.5834-.061 4.848-.051 1.17-.245 1.8055-.408 2.2294-.216.5604-.4763.96-.8954 1.3814-.419.4215-.8181.6811-1.3783.9-.4224.1649-1.0577.3617-2.2262.4174-1.2656.0595-1.6448.072-4.8493.079-3.2045.007-3.5825-.006-4.848-.0608M16.953 5.5864A1.44 1.44 0 1 0 18.39 4.144a1.44 1.44 0 0 0-1.437 1.4424M5.8385 12.012c.0067 3.4032 2.7706 6.1557 6.173 6.1493 3.4026-.0065 6.157-2.7701 6.1506-6.1733-.0065-3.4032-2.771-6.1565-6.174-6.1498-3.403.0067-6.156 2.771-6.1496 6.1738M8 12.0077a4 4 0 1 1 4.008 3.9921A3.9996 3.9996 0 0 1 8 12.0077"/></svg></a>
     <button class="menu-btn" id="menu-btn" type="button" aria-expanded="false" aria-controls="nav" aria-label="Abrir índice">+</button>
-    <nav class="nav" id="nav" aria-label="Índice"><ul class="nav-list"><li><a href="#perfil" data-sec="perfil">Perfil</a></li><li class="proj"><a href="#apartamento-db" data-sec="apartamento-db">Apartamento DB</a><ul class="sub"><li><a href="#db-sala">Sala</a></li><li><a href="#db-cocina">Cocina</a></li><li><a href="#db-comedor">Comedor</a></li><li><a href="#db-vestier">Vestier</a></li><li><a href="#db-bano-1">Baños</a></li><li><a href="#db-antes">Antes</a></li></ul></li><li class="proj"><a href="#apartamento-rosales" data-sec="apartamento-rosales">Apartamento Rosales</a><ul class="sub"><li><a href="#ro-sala">Sala</a></li><li><a href="#ro-cocina">Cocina</a></li><li><a href="#ro-comedor">Comedor</a></li><li><a href="#ro-biblioteca">Biblioteca</a></li><li><a href="#ro-bano-1">Baños</a></li><li><a href="#ro-antes">Antes</a></li></ul></li></ul></nav>
-    <p class="index-foot"><span>© 2026</span><a href="https://www.instagram.com/estudiomir_/" target="_blank" rel="noopener">@estudiomir_</a></p>
+    <nav class="nav" id="nav" aria-label="Índice"><ul class="nav-list"><li><a href="#perfil" data-sec="perfil">Perfil</a></li><li class="proj"><a href="#apartamento-db" data-sec="apartamento-db">Apartamento DB</a><ul class="sub"><li><a href="#db-sala">Sala</a></li><li><a href="#db-cocina">Cocina</a></li><li><a href="#db-comedor">Comedor</a></li><li><a href="#db-recorrido">Recorrido</a></li><li><a href="#db-vestier">Vestier</a></li><li><a href="#db-bano-1">Baños</a></li><li><a href="#db-antes">Antes</a></li></ul></li><li class="proj"><a href="#apartamento-cr" data-sec="apartamento-cr">Apartamento CR</a><ul class="sub"><li><a href="#ro-sala">Sala</a></li><li><a href="#ro-cocina">Cocina</a></li><li><a href="#ro-comedor">Comedor</a></li><li><a href="#ro-biblioteca">Biblioteca</a></li><li><a href="#ro-bano-1">Baños</a></li><li><a href="#ro-antes">Antes</a></li></ul></li></ul></nav>
+    <p class="index-foot"><a class="ig" href="https://www.instagram.com/estudiomir_/" target="_blank" rel="noopener" aria-label="Instagram de MIR estudio"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M7.0301.084c-1.2768.0602-2.1487.264-2.911.5634-.7888.3075-1.4575.72-2.1228 1.3877-.6652.6677-1.075 1.3368-1.3802 2.127-.2954.7638-.4956 1.6365-.552 2.914-.0564 1.2775-.0689 1.6882-.0626 4.947.0062 3.2586.0206 3.6671.0825 4.9473.061 1.2765.264 2.1482.5635 2.9107.308.7889.72 1.4573 1.388 2.1228.6679.6655 1.3365 1.0743 2.1285 1.38.7632.295 1.6361.4961 2.9134.552 1.2773.056 1.6884.069 4.9462.0627 3.2578-.0062 3.668-.0207 4.9478-.0814 1.28-.0607 2.147-.2652 2.9098-.5633.7889-.3086 1.4578-.72 2.1228-1.3881.665-.6682 1.0745-1.3378 1.3795-2.1284.2957-.7632.4966-1.636.552-2.9124.056-1.2809.0692-1.6898.063-4.948-.0063-3.2583-.021-3.6668-.0817-4.9465-.0607-1.2797-.264-2.1487-.5633-2.9117-.3084-.7889-.72-1.4568-1.3876-2.1228C21.2982 1.33 20.628.9208 19.8378.6165 19.074.321 18.2017.1197 16.9244.0645 15.6471.0093 15.236-.005 11.977.0014 8.718.0076 8.31.0215 7.0301.0839m.1402 21.6932c-1.17-.0509-1.8053-.2453-2.2287-.408-.5606-.216-.96-.4771-1.3819-.895-.422-.4178-.6811-.8186-.9-1.378-.1644-.4234-.3624-1.058-.4171-2.228-.0595-1.2645-.072-1.6442-.079-4.848-.007-3.2037.0053-3.583.0607-4.848.05-1.169.2456-1.805.408-2.2282.216-.5613.4762-.96.895-1.3816.4188-.4217.8184-.6814 1.3783-.9003.423-.1651 1.0575-.3614 2.227-.4171 1.2655-.06 1.6447-.072 4.848-.079 3.2033-.007 3.5835.005 4.8495.0608 1.169.0508 1.8053.2445 2.228.408.5608.216.96.4754 1.3816.895.4217.4194.6816.8176.9005 1.3787.1653.4217.3617 1.056.4169 2.2263.0602 1.2655.0739 1.645.0796 4.848.0058 3.203-.0055 3.5834-.061 4.848-.051 1.17-.245 1.8055-.408 2.2294-.216.5604-.4763.96-.8954 1.3814-.419.4215-.8181.6811-1.3783.9-.4224.1649-1.0577.3617-2.2262.4174-1.2656.0595-1.6448.072-4.8493.079-3.2045.007-3.5825-.006-4.848-.0608M16.953 5.5864A1.44 1.44 0 1 0 18.39 4.144a1.44 1.44 0 0 0-1.437 1.4424M5.8385 12.012c.0067 3.4032 2.7706 6.1557 6.173 6.1493 3.4026-.0065 6.157-2.7701 6.1506-6.1733-.0065-3.4032-2.771-6.1565-6.174-6.1498-3.403.0067-6.156 2.771-6.1496 6.1738M8 12.0077a4 4 0 1 1 4.008 3.9921A3.9996 3.9996 0 0 1 8 12.0077"/></svg></a><span>© 2026</span></p>
   </aside>
 
   <main>
 <section class="cover" aria-label="Proyectos">
 <div class="cover-frame">
 <a class="slide is-on" href="#db-sala" data-set="wide" data-n="1" data-cap="Apartamento DB · Sala" tabindex="0"><img src="img/db-sala-1200.jpg" srcset="img/db-sala-1200.jpg 1200w, img/db-sala-2400.jpg 2400w" sizes="(min-width: 900px) calc(100vw - 20rem), 100vw" width="2400" height="1603" alt="Sala con sofá integrado, mesa de centro de madera y cortinas de lino" loading="eager" decoding="async" data-full="img/db-sala-2400.jpg"></a>
-<a class="slide" href="#ro-biblioteca" data-set="wide" data-n="2" data-cap="Apartamento Rosales · Biblioteca y comedor auxiliar" tabindex="-1"><img src="img/ro-biblioteca-800.jpg" srcset="img/ro-biblioteca-800.jpg 800w, img/ro-biblioteca-1125.jpg 1125w" sizes="(min-width: 900px) calc((100vw - 20rem) / 2), 50vw" width="1125" height="1515" alt="Biblioteca empotrada junto a una banca de madera y una ventana" loading="lazy" decoding="async" data-full="img/ro-biblioteca-1125.jpg"><img src="img/ro-auxiliar-800.jpg" srcset="img/ro-auxiliar-800.jpg 800w, img/ro-auxiliar-1145.jpg 1145w" sizes="(min-width: 900px) calc((100vw - 20rem) / 2), 50vw" width="1145" height="1542" alt="Comedor auxiliar con mesa redonda tipo Tulip y banca de madera integrada" loading="lazy" decoding="async" data-full="img/ro-auxiliar-1145.jpg"></a>
+<a class="slide" href="#ro-biblioteca" data-set="wide" data-n="2" data-cap="Apartamento CR · Biblioteca y comedor auxiliar" tabindex="-1"><img src="img/ro-biblioteca-800.jpg" srcset="img/ro-biblioteca-800.jpg 800w, img/ro-biblioteca-1125.jpg 1125w" sizes="(min-width: 900px) calc((100vw - 20rem) / 2), 50vw" width="1125" height="1515" alt="Biblioteca empotrada junto a una banca de madera y una ventana" loading="lazy" decoding="async" data-full="img/ro-biblioteca-1125.jpg"><img src="img/ro-auxiliar-800.jpg" srcset="img/ro-auxiliar-800.jpg 800w, img/ro-auxiliar-1145.jpg 1145w" sizes="(min-width: 900px) calc((100vw - 20rem) / 2), 50vw" width="1145" height="1542" alt="Comedor auxiliar con mesa redonda tipo Tulip y banca de madera integrada" loading="lazy" decoding="async" data-full="img/ro-auxiliar-1145.jpg"></a>
 <a class="slide" href="#db-cocina" data-set="wide" data-n="1" data-cap="Apartamento DB · Cocina" tabindex="-1"><img src="img/db-cocina-1200.jpg" srcset="img/db-cocina-1200.jpg 1200w, img/db-cocina-2400.jpg 2400w" sizes="(min-width: 900px) calc(100vw - 20rem), 100vw" width="2400" height="1603" alt="Cocina con muebles de madera, isla de piedra y comedor junto a la ventana" loading="lazy" decoding="async" data-full="img/db-cocina-2400.jpg"></a>
 <a class="slide" href="#db-vestier" data-set="wide" data-n="2" data-cap="Apartamento DB · Vestier y baño" tabindex="-1"><img src="img/db-vestier-900.jpg" srcset="img/db-vestier-900.jpg 900w, img/db-vestier-1500.jpg 1500w" sizes="(min-width: 900px) calc((100vw - 20rem) / 2), 50vw" width="1500" height="2000" alt="Vestier con estantería de madera e iluminación integrada" loading="lazy" decoding="async" data-full="img/db-vestier-1500.jpg"><img src="img/db-bano-2-900.jpg" srcset="img/db-bano-2-900.jpg 900w, img/db-bano-2-1500.jpg 1500w" sizes="(min-width: 900px) calc((100vw - 20rem) / 2), 50vw" width="1500" height="2000" alt="Baño con paredes en madera oscura y lavamanos de mármol negro" loading="lazy" decoding="async" data-full="img/db-bano-2-1500.jpg"></a>
-<a class="slide" href="#ro-sala" data-set="wide" data-n="1" data-cap="Apartamento Rosales · Sala" tabindex="-1"><img src="img/ro-sala-1000.jpg" srcset="img/ro-sala-1000.jpg 1000w, img/ro-sala-1717.jpg 1717w" sizes="(min-width: 900px) calc(100vw - 20rem), 100vw" width="1717" height="966" alt="Sala con chimenea, piano, sillas de madera y piso de madera" loading="lazy" decoding="async" data-full="img/ro-sala-1717.jpg"></a>
+<a class="slide" href="#ro-sala" data-set="wide" data-n="1" data-cap="Apartamento CR · Sala" tabindex="-1"><img src="img/ro-sala-1000.jpg" srcset="img/ro-sala-1000.jpg 1000w, img/ro-sala-1717.jpg 1717w" sizes="(min-width: 900px) calc(100vw - 20rem), 100vw" width="1717" height="966" alt="Sala con chimenea, piano, sillas de madera y piso de madera" loading="lazy" decoding="async" data-full="img/ro-sala-1717.jpg"></a>
 <a class="slide is-on" href="#db-sala" data-set="tall" data-n="1" data-cap="Apartamento DB · Sala" tabindex="0"><img src="img/db-sala-1200.jpg" srcset="img/db-sala-1200.jpg 1200w, img/db-sala-2400.jpg 2400w" sizes="(max-width: 899px) 260vw, 1px" width="2400" height="1603" alt="Sala con sofá integrado, mesa de centro de madera y cortinas de lino" loading="eager" decoding="async" data-full="img/db-sala-2400.jpg"></a>
 <a class="slide" href="#db-comedor" data-set="tall" data-n="1" data-cap="Apartamento DB · Comedor" tabindex="-1"><img src="img/db-comedor-900.jpg" srcset="img/db-comedor-900.jpg 900w, img/db-comedor-1500.jpg 1500w" sizes="(max-width: 899px) 100vw, 1px" width="1500" height="2000" alt="Comedor de desayuno con banca de cuero, mesa de mármol y paredes en madera" loading="lazy" decoding="async" data-full="img/db-comedor-1500.jpg"></a>
-<a class="slide" href="#ro-auxiliar" data-set="tall" data-n="1" data-cap="Apartamento Rosales · Comedor auxiliar" tabindex="-1"><img src="img/ro-auxiliar-800.jpg" srcset="img/ro-auxiliar-800.jpg 800w, img/ro-auxiliar-1145.jpg 1145w" sizes="(max-width: 899px) 100vw, 1px" width="1145" height="1542" alt="Comedor auxiliar con mesa redonda tipo Tulip y banca de madera integrada" loading="lazy" decoding="async" data-full="img/ro-auxiliar-1145.jpg"></a>
+<a class="slide" href="#ro-auxiliar" data-set="tall" data-n="1" data-cap="Apartamento CR · Comedor auxiliar" tabindex="-1"><img src="img/ro-auxiliar-800.jpg" srcset="img/ro-auxiliar-800.jpg 800w, img/ro-auxiliar-1145.jpg 1145w" sizes="(max-width: 899px) 100vw, 1px" width="1145" height="1542" alt="Comedor auxiliar con mesa redonda tipo Tulip y banca de madera integrada" loading="lazy" decoding="async" data-full="img/ro-auxiliar-1145.jpg"></a>
 <a class="slide" href="#db-vestier" data-set="tall" data-n="1" data-cap="Apartamento DB · Vestier" tabindex="-1"><img src="img/db-vestier-900.jpg" srcset="img/db-vestier-900.jpg 900w, img/db-vestier-1500.jpg 1500w" sizes="(max-width: 899px) 100vw, 1px" width="1500" height="2000" alt="Vestier con estantería de madera e iluminación integrada" loading="lazy" decoding="async" data-full="img/db-vestier-1500.jpg"></a>
-<a class="slide" href="#ro-biblioteca" data-set="tall" data-n="1" data-cap="Apartamento Rosales · Biblioteca" tabindex="-1"><img src="img/ro-biblioteca-800.jpg" srcset="img/ro-biblioteca-800.jpg 800w, img/ro-biblioteca-1125.jpg 1125w" sizes="(max-width: 899px) 100vw, 1px" width="1125" height="1515" alt="Biblioteca empotrada junto a una banca de madera y una ventana" loading="lazy" decoding="async" data-full="img/ro-biblioteca-1125.jpg"></a>
+<a class="slide" href="#ro-biblioteca" data-set="tall" data-n="1" data-cap="Apartamento CR · Biblioteca" tabindex="-1"><img src="img/ro-biblioteca-800.jpg" srcset="img/ro-biblioteca-800.jpg 800w, img/ro-biblioteca-1125.jpg 1125w" sizes="(max-width: 899px) 100vw, 1px" width="1125" height="1515" alt="Biblioteca empotrada junto a una banca de madera y una ventana" loading="lazy" decoding="async" data-full="img/ro-biblioteca-1125.jpg"></a>
 <a class="slide" href="#db-bano-2" data-set="tall" data-n="1" data-cap="Apartamento DB · Baño" tabindex="-1"><img src="img/db-bano-2-900.jpg" srcset="img/db-bano-2-900.jpg 900w, img/db-bano-2-1500.jpg 1500w" sizes="(max-width: 899px) 100vw, 1px" width="1500" height="2000" alt="Baño con paredes en madera oscura y lavamanos de mármol negro" loading="lazy" decoding="async" data-full="img/db-bano-2-1500.jpg"></a>
 </div>
 <p class="cover-cap"><a class="cover-name" href="#db-sala">Apartamento DB · Sala</a><span class="cover-count">01 / 05</span></p>
@@ -457,15 +453,6 @@ figcaption {
           <li>Mobiliario integrado</li>
         </ul>
       </div>
-      <div class="i-colab">
-        <h2>Colaboradores</h2>
-        <ul class="plain colab">
-          <li><span>Santiago Muñoz</span><span class="muted">Arquitectura</span></li>
-          <li><span>Esteban Duque</span><span class="muted">Construcción</span></li>
-          <li><span>Pedro Bermúdez</span><span class="muted">Mobiliario</span></li>
-          <li><span>Simon Bosch</span><span class="muted">Fotografía</span></li>
-        </ul>
-      </div>
       <div class="i-contact">
         <h2>Contacto</h2>
         <p><a href="mailto:info@estudiomir.com">info@estudiomir.com</a><br>
@@ -478,17 +465,17 @@ figcaption {
 <header class="project-head grid12">
 <div class="ph-title"><h2 id="apartamento-db-t">Apartamento DB</h2><p class="muted">Residencial</p><p class="muted">Bogotá, Colombia</p><p class="muted">Remodelación integral</p></div>
 <div class="ph-text"><p>En esta remodelación propusimos la cocina como parte central de la casa, un lugar que además de ser funcional fuera un espacio de encuentro para la familia, con muebles que no solo cumplieran una función sino que también aportaran calidez y se sintieran parte del mobiliario de la casa.</p><p>Por eso elegimos la madera, el granito y la piedra natural como protagonistas, presentes en pisos, paredes y detalles, para crear una atmósfera cálida y atemporal.</p></div>
-<dl class="ph-credits"><div><dt>Arquitectura</dt><dd>Santiago Muñoz</dd></div><div><dt>Diseño y acabados</dt><dd>MIR estudio</dd></div><div><dt>Construcción</dt><dd>Esteban Duque</dd></div><div><dt>Mobiliario</dt><dd>Pedro Bermúdez</dd></div><div><dt>Fotografía</dt><dd>Simon Bosch</dd></div><div><dt>Materiales</dt><dd>Madera, granito, mármol y piedra natural</dd></div></dl>
 </header>
 <div class="plates grid12">
 <figure class="plate" data-span="12" id="db-sala"><button class="plate-btn" type="button" data-lb data-caption="Apartamento DB · 01 Sala" aria-label="Ver Sala en grande"><img src="img/db-sala-1200.jpg" srcset="img/db-sala-1200.jpg 1200w, img/db-sala-2400.jpg 2400w" sizes="(min-width: 900px) calc((100vw - 20rem) * 1.000), 100vw" width="2400" height="1603" alt="Sala con sofá integrado, mesa de centro de madera y cortinas de lino" loading="eager" decoding="async" data-full="img/db-sala-2400.jpg"></button><figcaption><span class="num">01</span>Sala</figcaption></figure>
 <figure class="plate" data-span="8" style="--start:1" id="db-cocina"><button class="plate-btn" type="button" data-lb data-caption="Apartamento DB · 02 Cocina" aria-label="Ver Cocina en grande"><img src="img/db-cocina-1200.jpg" srcset="img/db-cocina-1200.jpg 1200w, img/db-cocina-2400.jpg 2400w" sizes="(min-width: 900px) calc((100vw - 20rem) * 0.667), 100vw" width="2400" height="1603" alt="Cocina con muebles de madera, isla de piedra y comedor junto a la ventana" loading="lazy" decoding="async" data-full="img/db-cocina-2400.jpg"></button><figcaption><span class="num">02</span>Cocina</figcaption></figure>
 <figure class="plate" data-span="4" id="db-comedor"><button class="plate-btn" type="button" data-lb data-caption="Apartamento DB · 03 Comedor" aria-label="Ver Comedor en grande"><img src="img/db-comedor-900.jpg" srcset="img/db-comedor-900.jpg 900w, img/db-comedor-1500.jpg 1500w" sizes="(min-width: 900px) calc((100vw - 20rem) * 0.333), 100vw" width="1500" height="2000" alt="Comedor de desayuno con banca de cuero, mesa de mármol y paredes en madera" loading="lazy" decoding="async" data-full="img/db-comedor-1500.jpg"></button><figcaption><span class="num">03</span>Comedor</figcaption></figure>
-<figure class="plate" data-span="4" style="--start:1" id="db-vestier"><button class="plate-btn" type="button" data-lb data-caption="Apartamento DB · 04 Vestier" aria-label="Ver Vestier en grande"><img src="img/db-vestier-900.jpg" srcset="img/db-vestier-900.jpg 900w, img/db-vestier-1500.jpg 1500w" sizes="(min-width: 900px) calc((100vw - 20rem) * 0.333), 100vw" width="1500" height="2000" alt="Vestier con estantería de madera e iluminación integrada" loading="lazy" decoding="async" data-full="img/db-vestier-1500.jpg"></button><figcaption><span class="num">04</span>Vestier</figcaption></figure>
-<figure class="plate" data-span="4" id="db-bano-1"><button class="plate-btn" type="button" data-lb data-caption="Apartamento DB · 05 Baño" aria-label="Ver Baño en grande"><img src="img/db-bano-1-900.jpg" srcset="img/db-bano-1-900.jpg 900w, img/db-bano-1-1500.jpg 1500w" sizes="(min-width: 900px) calc((100vw - 20rem) * 0.333), 100vw" width="1500" height="2000" alt="Baño con mesón de mármol, mueble de madera y espejos en las paredes" loading="lazy" decoding="async" data-full="img/db-bano-1-1500.jpg"></button><figcaption><span class="num">05</span>Baño</figcaption></figure>
-<figure class="plate" data-span="4" id="db-bano-2"><button class="plate-btn" type="button" data-lb data-caption="Apartamento DB · 06 Baño" aria-label="Ver Baño en grande"><img src="img/db-bano-2-900.jpg" srcset="img/db-bano-2-900.jpg 900w, img/db-bano-2-1500.jpg 1500w" sizes="(min-width: 900px) calc((100vw - 20rem) * 0.333), 100vw" width="1500" height="2000" alt="Baño con paredes en madera oscura y lavamanos de mármol negro" loading="lazy" decoding="async" data-full="img/db-bano-2-1500.jpg"></button><figcaption><span class="num">06</span>Baño</figcaption></figure>
+<figure class="plate" data-span="8" style="--start:3" id="db-recorrido"><video src="img/db-recorrido.mp4" poster="img/db-recorrido-poster.jpg" width="848" height="480" autoplay muted loop playsinline preload="metadata" data-loop aria-label="Video del Apartamento DB"></video><figcaption><span class="num">04</span>Recorrido</figcaption></figure>
+<figure class="plate" data-span="4" style="--start:1" id="db-vestier"><button class="plate-btn" type="button" data-lb data-caption="Apartamento DB · 05 Vestier" aria-label="Ver Vestier en grande"><img src="img/db-vestier-900.jpg" srcset="img/db-vestier-900.jpg 900w, img/db-vestier-1500.jpg 1500w" sizes="(min-width: 900px) calc((100vw - 20rem) * 0.333), 100vw" width="1500" height="2000" alt="Vestier con estantería de madera e iluminación integrada" loading="lazy" decoding="async" data-full="img/db-vestier-1500.jpg"></button><figcaption><span class="num">05</span>Vestier</figcaption></figure>
+<figure class="plate" data-span="4" id="db-bano-1"><button class="plate-btn" type="button" data-lb data-caption="Apartamento DB · 06 Baño" aria-label="Ver Baño en grande"><img src="img/db-bano-1-900.jpg" srcset="img/db-bano-1-900.jpg 900w, img/db-bano-1-1500.jpg 1500w" sizes="(min-width: 900px) calc((100vw - 20rem) * 0.333), 100vw" width="1500" height="2000" alt="Baño con mesón de mármol, mueble de madera y espejos en las paredes" loading="lazy" decoding="async" data-full="img/db-bano-1-1500.jpg"></button><figcaption><span class="num">06</span>Baño</figcaption></figure>
+<figure class="plate" data-span="4" id="db-bano-2"><button class="plate-btn" type="button" data-lb data-caption="Apartamento DB · 07 Baño" aria-label="Ver Baño en grande"><img src="img/db-bano-2-900.jpg" srcset="img/db-bano-2-900.jpg 900w, img/db-bano-2-1500.jpg 1500w" sizes="(min-width: 900px) calc((100vw - 20rem) * 0.333), 100vw" width="1500" height="2000" alt="Baño con paredes en madera oscura y lavamanos de mármol negro" loading="lazy" decoding="async" data-full="img/db-bano-2-1500.jpg"></button><figcaption><span class="num">07</span>Baño</figcaption></figure>
 <blockquote class="pull" data-span="6" style="--start:1"><p>Construir una casa es primero pensar cómo queremos habitarla.</p></blockquote>
-<figure class="plate" data-span="5" style="--start:8" id="db-detalle"><button class="plate-btn" type="button" data-lb data-caption="Apartamento DB · 07 Detalle" aria-label="Ver Detalle en grande"><img src="img/db-detalle-1088.jpg" srcset="img/db-detalle-1088.jpg 1088w" sizes="(min-width: 900px) calc((100vw - 20rem) * 0.417), 100vw" width="1088" height="1088" alt="Pared en madera oscura con un cuadro" loading="lazy" decoding="async" data-full="img/db-detalle-1088.jpg"></button><figcaption><span class="num">07</span>Detalle</figcaption></figure>
+<figure class="plate" data-span="5" style="--start:8" id="db-detalle"><button class="plate-btn" type="button" data-lb data-caption="Apartamento DB · 08 Detalle" aria-label="Ver Detalle en grande"><img src="img/db-detalle-1088.jpg" srcset="img/db-detalle-1088.jpg 1088w" sizes="(min-width: 900px) calc((100vw - 20rem) * 0.417), 100vw" width="1088" height="1088" alt="Pared en madera oscura con un cuadro" loading="lazy" decoding="async" data-full="img/db-detalle-1088.jpg"></button><figcaption><span class="num">08</span>Detalle</figcaption></figure>
 </div>
 <div class="before grid12" id="db-antes"><p class="before-label"><span class="strong">Antes</span><span class="muted">Así estaban los espacios antes de la obra</span></p><div class="before-row">
 <figure class="thumb"><button class="plate-btn" type="button" data-lb data-caption="Apartamento DB · Antes · Sala" aria-label="Ver Sala antes de la obra en grande"><img src="img/db-antes-sala-800.jpg" srcset="img/db-antes-sala-800.jpg 800w" sizes="(min-width: 900px) calc((100vw - 20rem) * 0.167), 100vw" width="800" height="534" alt="La sala antes de la remodelación, en obra" loading="lazy" decoding="async" data-full="img/db-antes-sala-800.jpg"></button><figcaption>Sala</figcaption></figure>
@@ -497,34 +484,32 @@ figcaption {
 <figure class="thumb"><button class="plate-btn" type="button" data-lb data-caption="Apartamento DB · Antes · Baño" aria-label="Ver Baño antes de la obra en grande"><img src="img/db-antes-bano-719.jpg" srcset="img/db-antes-bano-719.jpg 719w" sizes="(min-width: 900px) calc((100vw - 20rem) * 0.167), 100vw" width="719" height="959" alt="El baño antes de la remodelación" loading="lazy" decoding="async" data-full="img/db-antes-bano-719.jpg"></button><figcaption>Baño</figcaption></figure>
 </div></div>
 </section>
-<section class="project" id="apartamento-rosales" aria-labelledby="apartamento-rosales-t">
+<section class="project" id="apartamento-cr" aria-labelledby="apartamento-cr-t">
 <header class="project-head grid12">
-<div class="ph-title"><h2 id="apartamento-rosales-t">Apartamento Rosales</h2><p class="muted">Residencial</p><p class="muted">Rosales, Bogotá</p><p class="muted">Edificio de 1989</p></div>
+<div class="ph-title"><h2 id="apartamento-cr-t">Apartamento CR</h2><p class="muted">Residencial</p><p class="muted">Rosales, Bogotá</p><p class="muted">Edificio de 1989</p></div>
 <div class="ph-text"><p>Este apartamento estaba en su estado original de 1989, y el proyecto de reforma partió con la idea de actualizarlo respetando su esencia y el carácter del espacio original.</p><p>En la cocina usamos acero inoxidable, piedra y madera, y en el comedor auxiliar una mesa tipo Tulip y una banca de madera integrada crean un rincón lleno de luz natural para disfrutar la vegetación exterior.</p></div>
-<dl class="ph-credits"><div><dt>Diseño y acabados</dt><dd>MIR estudio</dd></div><div><dt>Fotografía</dt><dd>Simon Bosch</dd></div><div><dt>Materiales</dt><dd>Madera, piedra natural y acero inoxidable</dd></div></dl>
 </header>
 <div class="plates grid12">
-<figure class="plate" data-span="12" id="ro-sala"><button class="plate-btn" type="button" data-lb data-caption="Apartamento Rosales · 01 Sala" aria-label="Ver Sala en grande"><img src="img/ro-sala-1000.jpg" srcset="img/ro-sala-1000.jpg 1000w, img/ro-sala-1717.jpg 1717w" sizes="(min-width: 900px) calc((100vw - 20rem) * 1.000), 100vw" width="1717" height="966" alt="Sala con chimenea, piano, sillas de madera y piso de madera" loading="lazy" decoding="async" data-full="img/ro-sala-1717.jpg"></button><figcaption><span class="num">01</span>Sala</figcaption></figure>
-<figure class="plate" data-span="4" style="--start:1" id="ro-cocina"><button class="plate-btn" type="button" data-lb data-caption="Apartamento Rosales · 02 Cocina" aria-label="Ver Cocina en grande"><img src="img/ro-cocina-800.jpg" srcset="img/ro-cocina-800.jpg 800w, img/ro-cocina-1145.jpg 1145w" sizes="(min-width: 900px) calc((100vw - 20rem) * 0.333), 100vw" width="1145" height="1542" alt="Cocina con muebles de madera, mesón de piedra y vista al comedor" loading="lazy" decoding="async" data-full="img/ro-cocina-1145.jpg"></button><figcaption><span class="num">02</span>Cocina</figcaption></figure>
-<figure class="plate" data-span="4" id="ro-isla"><button class="plate-btn" type="button" data-lb data-caption="Apartamento Rosales · 03 Cocina" aria-label="Ver Cocina en grande"><img src="img/ro-isla-800.jpg" srcset="img/ro-isla-800.jpg 800w, img/ro-isla-1145.jpg 1145w" sizes="(min-width: 900px) calc((100vw - 20rem) * 0.333), 100vw" width="1145" height="1542" alt="Isla de piedra con butacos de madera" loading="lazy" decoding="async" data-full="img/ro-isla-1145.jpg"></button><figcaption><span class="num">03</span>Cocina</figcaption></figure>
-<figure class="plate" data-span="4" id="ro-comedor"><button class="plate-btn" type="button" data-lb data-caption="Apartamento Rosales · 04 Comedor" aria-label="Ver Comedor en grande"><img src="img/ro-comedor-800.jpg" srcset="img/ro-comedor-800.jpg 800w, img/ro-comedor-1145.jpg 1145w" sizes="(min-width: 900px) calc((100vw - 20rem) * 0.333), 100vw" width="1145" height="1542" alt="Comedor visto desde una biblioteca iluminada" loading="lazy" decoding="async" data-full="img/ro-comedor-1145.jpg"></button><figcaption><span class="num">04</span>Comedor</figcaption></figure>
-<figure class="plate" data-span="6" style="--start:1" id="ro-biblioteca"><button class="plate-btn" type="button" data-lb data-caption="Apartamento Rosales · 05 Biblioteca" aria-label="Ver Biblioteca en grande"><img src="img/ro-biblioteca-800.jpg" srcset="img/ro-biblioteca-800.jpg 800w, img/ro-biblioteca-1125.jpg 1125w" sizes="(min-width: 900px) calc((100vw - 20rem) * 0.500), 100vw" width="1125" height="1515" alt="Biblioteca empotrada junto a una banca de madera y una ventana" loading="lazy" decoding="async" data-full="img/ro-biblioteca-1125.jpg"></button><figcaption><span class="num">05</span>Biblioteca</figcaption></figure>
-<figure class="plate" data-span="6" id="ro-auxiliar"><button class="plate-btn" type="button" data-lb data-caption="Apartamento Rosales · 06 Comedor auxiliar" aria-label="Ver Comedor auxiliar en grande"><img src="img/ro-auxiliar-800.jpg" srcset="img/ro-auxiliar-800.jpg 800w, img/ro-auxiliar-1145.jpg 1145w" sizes="(min-width: 900px) calc((100vw - 20rem) * 0.500), 100vw" width="1145" height="1542" alt="Comedor auxiliar con mesa redonda tipo Tulip y banca de madera integrada" loading="lazy" decoding="async" data-full="img/ro-auxiliar-1145.jpg"></button><figcaption><span class="num">06</span>Comedor auxiliar</figcaption></figure>
-<figure class="plate" data-span="5" style="--start:3" id="ro-chimenea"><button class="plate-btn" type="button" data-lb data-caption="Apartamento Rosales · 07 Chimenea" aria-label="Ver Chimenea en grande"><img src="img/ro-chimenea-800.jpg" srcset="img/ro-chimenea-800.jpg 800w, img/ro-chimenea-1145.jpg 1145w" sizes="(min-width: 900px) calc((100vw - 20rem) * 0.417), 100vw" width="1145" height="1542" alt="Silla lounge de cuero junto a la chimenea" loading="lazy" decoding="async" data-full="img/ro-chimenea-1145.jpg"></button><figcaption><span class="num">07</span>Chimenea</figcaption></figure>
-<figure class="plate" data-span="4" style="--start:1" id="ro-bano-1"><button class="plate-btn" type="button" data-lb data-caption="Apartamento Rosales · 08 Baño" aria-label="Ver Baño en grande"><img src="img/ro-bano-1-800.jpg" srcset="img/ro-bano-1-800.jpg 800w, img/ro-bano-1-1043.jpg 1043w" sizes="(min-width: 900px) calc((100vw - 20rem) * 0.333), 100vw" width="1043" height="1405" alt="Baño con salpicadero de piedra natural y espejo" loading="lazy" decoding="async" data-full="img/ro-bano-1-1043.jpg"></button><figcaption><span class="num">08</span>Baño</figcaption></figure>
-<figure class="plate" data-span="4" id="ro-bano-2"><button class="plate-btn" type="button" data-lb data-caption="Apartamento Rosales · 09 Baño" aria-label="Ver Baño en grande"><img src="img/ro-bano-2-800.jpg" srcset="img/ro-bano-2-800.jpg 800w, img/ro-bano-2-1145.jpg 1145w" sizes="(min-width: 900px) calc((100vw - 20rem) * 0.333), 100vw" width="1145" height="1542" alt="Baño con mesón de piedra natural y mueble de madera" loading="lazy" decoding="async" data-full="img/ro-bano-2-1145.jpg"></button><figcaption><span class="num">09</span>Baño</figcaption></figure>
-<figure class="plate" data-span="4" id="ro-bano-3"><button class="plate-btn" type="button" data-lb data-caption="Apartamento Rosales · 10 Baño" aria-label="Ver Baño en grande"><img src="img/ro-bano-3-800.jpg" srcset="img/ro-bano-3-800.jpg 800w, img/ro-bano-3-1145.jpg 1145w" sizes="(min-width: 900px) calc((100vw - 20rem) * 0.333), 100vw" width="1145" height="1542" alt="Ducha en vidrio con baldosa blanca y mesón de piedra" loading="lazy" decoding="async" data-full="img/ro-bano-3-1145.jpg"></button><figcaption><span class="num">10</span>Baño</figcaption></figure>
+<figure class="plate" data-span="12" id="ro-sala"><button class="plate-btn" type="button" data-lb data-caption="Apartamento CR · 01 Sala" aria-label="Ver Sala en grande"><img src="img/ro-sala-1000.jpg" srcset="img/ro-sala-1000.jpg 1000w, img/ro-sala-1717.jpg 1717w" sizes="(min-width: 900px) calc((100vw - 20rem) * 1.000), 100vw" width="1717" height="966" alt="Sala con chimenea, piano, sillas de madera y piso de madera" loading="lazy" decoding="async" data-full="img/ro-sala-1717.jpg"></button><figcaption><span class="num">01</span>Sala</figcaption></figure>
+<figure class="plate" data-span="4" style="--start:1" id="ro-cocina"><button class="plate-btn" type="button" data-lb data-caption="Apartamento CR · 02 Cocina" aria-label="Ver Cocina en grande"><img src="img/ro-cocina-800.jpg" srcset="img/ro-cocina-800.jpg 800w, img/ro-cocina-1145.jpg 1145w" sizes="(min-width: 900px) calc((100vw - 20rem) * 0.333), 100vw" width="1145" height="1542" alt="Cocina con muebles de madera, mesón de piedra y vista al comedor" loading="lazy" decoding="async" data-full="img/ro-cocina-1145.jpg"></button><figcaption><span class="num">02</span>Cocina</figcaption></figure>
+<figure class="plate" data-span="4" id="ro-isla"><button class="plate-btn" type="button" data-lb data-caption="Apartamento CR · 03 Cocina" aria-label="Ver Cocina en grande"><img src="img/ro-isla-800.jpg" srcset="img/ro-isla-800.jpg 800w, img/ro-isla-1145.jpg 1145w" sizes="(min-width: 900px) calc((100vw - 20rem) * 0.333), 100vw" width="1145" height="1542" alt="Isla de piedra con butacos de madera" loading="lazy" decoding="async" data-full="img/ro-isla-1145.jpg"></button><figcaption><span class="num">03</span>Cocina</figcaption></figure>
+<figure class="plate" data-span="4" id="ro-comedor"><button class="plate-btn" type="button" data-lb data-caption="Apartamento CR · 04 Comedor" aria-label="Ver Comedor en grande"><img src="img/ro-comedor-800.jpg" srcset="img/ro-comedor-800.jpg 800w, img/ro-comedor-1145.jpg 1145w" sizes="(min-width: 900px) calc((100vw - 20rem) * 0.333), 100vw" width="1145" height="1542" alt="Comedor visto desde una biblioteca iluminada" loading="lazy" decoding="async" data-full="img/ro-comedor-1145.jpg"></button><figcaption><span class="num">04</span>Comedor</figcaption></figure>
+<figure class="plate" data-span="6" style="--start:1" id="ro-biblioteca"><button class="plate-btn" type="button" data-lb data-caption="Apartamento CR · 05 Biblioteca" aria-label="Ver Biblioteca en grande"><img src="img/ro-biblioteca-800.jpg" srcset="img/ro-biblioteca-800.jpg 800w, img/ro-biblioteca-1125.jpg 1125w" sizes="(min-width: 900px) calc((100vw - 20rem) * 0.500), 100vw" width="1125" height="1515" alt="Biblioteca empotrada junto a una banca de madera y una ventana" loading="lazy" decoding="async" data-full="img/ro-biblioteca-1125.jpg"></button><figcaption><span class="num">05</span>Biblioteca</figcaption></figure>
+<figure class="plate" data-span="6" id="ro-auxiliar"><button class="plate-btn" type="button" data-lb data-caption="Apartamento CR · 06 Comedor auxiliar" aria-label="Ver Comedor auxiliar en grande"><img src="img/ro-auxiliar-800.jpg" srcset="img/ro-auxiliar-800.jpg 800w, img/ro-auxiliar-1145.jpg 1145w" sizes="(min-width: 900px) calc((100vw - 20rem) * 0.500), 100vw" width="1145" height="1542" alt="Comedor auxiliar con mesa redonda tipo Tulip y banca de madera integrada" loading="lazy" decoding="async" data-full="img/ro-auxiliar-1145.jpg"></button><figcaption><span class="num">06</span>Comedor auxiliar</figcaption></figure>
+<figure class="plate" data-span="5" style="--start:3" id="ro-chimenea"><button class="plate-btn" type="button" data-lb data-caption="Apartamento CR · 07 Chimenea" aria-label="Ver Chimenea en grande"><img src="img/ro-chimenea-800.jpg" srcset="img/ro-chimenea-800.jpg 800w, img/ro-chimenea-1145.jpg 1145w" sizes="(min-width: 900px) calc((100vw - 20rem) * 0.417), 100vw" width="1145" height="1542" alt="Silla lounge de cuero junto a la chimenea" loading="lazy" decoding="async" data-full="img/ro-chimenea-1145.jpg"></button><figcaption><span class="num">07</span>Chimenea</figcaption></figure>
+<figure class="plate" data-span="4" style="--start:1" id="ro-bano-1"><button class="plate-btn" type="button" data-lb data-caption="Apartamento CR · 08 Baño" aria-label="Ver Baño en grande"><img src="img/ro-bano-1-800.jpg" srcset="img/ro-bano-1-800.jpg 800w, img/ro-bano-1-1043.jpg 1043w" sizes="(min-width: 900px) calc((100vw - 20rem) * 0.333), 100vw" width="1043" height="1405" alt="Baño con salpicadero de piedra natural y espejo" loading="lazy" decoding="async" data-full="img/ro-bano-1-1043.jpg"></button><figcaption><span class="num">08</span>Baño</figcaption></figure>
+<figure class="plate" data-span="4" id="ro-bano-2"><button class="plate-btn" type="button" data-lb data-caption="Apartamento CR · 09 Baño" aria-label="Ver Baño en grande"><img src="img/ro-bano-2-800.jpg" srcset="img/ro-bano-2-800.jpg 800w, img/ro-bano-2-1145.jpg 1145w" sizes="(min-width: 900px) calc((100vw - 20rem) * 0.333), 100vw" width="1145" height="1542" alt="Baño con mesón de piedra natural y mueble de madera" loading="lazy" decoding="async" data-full="img/ro-bano-2-1145.jpg"></button><figcaption><span class="num">09</span>Baño</figcaption></figure>
+<figure class="plate" data-span="4" id="ro-bano-3"><button class="plate-btn" type="button" data-lb data-caption="Apartamento CR · 10 Baño" aria-label="Ver Baño en grande"><img src="img/ro-bano-3-800.jpg" srcset="img/ro-bano-3-800.jpg 800w, img/ro-bano-3-1145.jpg 1145w" sizes="(min-width: 900px) calc((100vw - 20rem) * 0.333), 100vw" width="1145" height="1542" alt="Ducha en vidrio con baldosa blanca y mesón de piedra" loading="lazy" decoding="async" data-full="img/ro-bano-3-1145.jpg"></button><figcaption><span class="num">10</span>Baño</figcaption></figure>
 </div>
 <div class="before grid12" id="ro-antes"><p class="before-label"><span class="strong">Antes</span><span class="muted">Así estaban los espacios antes de la obra</span></p><div class="before-row">
-<figure class="thumb"><button class="plate-btn" type="button" data-lb data-caption="Apartamento Rosales · Antes · Sala" aria-label="Ver Sala antes de la obra en grande"><img src="img/ro-antes-sala-1024.jpg" srcset="img/ro-antes-sala-1024.jpg 1024w" sizes="(min-width: 900px) calc((100vw - 20rem) * 0.167), 100vw" width="1024" height="576" alt="La sala antes de la remodelación" loading="lazy" decoding="async" data-full="img/ro-antes-sala-1024.jpg"></button><figcaption>Sala</figcaption></figure>
-<figure class="thumb"><button class="plate-btn" type="button" data-lb data-caption="Apartamento Rosales · Antes · Cocina" aria-label="Ver Cocina antes de la obra en grande"><img src="img/ro-antes-cocina-570.jpg" srcset="img/ro-antes-cocina-570.jpg 570w" sizes="(min-width: 900px) calc((100vw - 20rem) * 0.167), 100vw" width="570" height="768" alt="La cocina antes de la remodelación" loading="lazy" decoding="async" data-full="img/ro-antes-cocina-570.jpg"></button><figcaption>Cocina</figcaption></figure>
-<figure class="thumb"><button class="plate-btn" type="button" data-lb data-caption="Apartamento Rosales · Antes · Baño" aria-label="Ver Baño antes de la obra en grande"><img src="img/ro-antes-bano-760.jpg" srcset="img/ro-antes-bano-760.jpg 760w" sizes="(min-width: 900px) calc((100vw - 20rem) * 0.167), 100vw" width="760" height="1024" alt="El baño antes de la remodelación" loading="lazy" decoding="async" data-full="img/ro-antes-bano-760.jpg"></button><figcaption>Baño</figcaption></figure>
+<figure class="thumb"><button class="plate-btn" type="button" data-lb data-caption="Apartamento CR · Antes · Sala" aria-label="Ver Sala antes de la obra en grande"><img src="img/ro-antes-sala-1024.jpg" srcset="img/ro-antes-sala-1024.jpg 1024w" sizes="(min-width: 900px) calc((100vw - 20rem) * 0.167), 100vw" width="1024" height="576" alt="La sala antes de la remodelación" loading="lazy" decoding="async" data-full="img/ro-antes-sala-1024.jpg"></button><figcaption>Sala</figcaption></figure>
+<figure class="thumb"><button class="plate-btn" type="button" data-lb data-caption="Apartamento CR · Antes · Cocina" aria-label="Ver Cocina antes de la obra en grande"><img src="img/ro-antes-cocina-570.jpg" srcset="img/ro-antes-cocina-570.jpg 570w" sizes="(min-width: 900px) calc((100vw - 20rem) * 0.167), 100vw" width="570" height="768" alt="La cocina antes de la remodelación" loading="lazy" decoding="async" data-full="img/ro-antes-cocina-570.jpg"></button><figcaption>Cocina</figcaption></figure>
+<figure class="thumb"><button class="plate-btn" type="button" data-lb data-caption="Apartamento CR · Antes · Baño" aria-label="Ver Baño antes de la obra en grande"><img src="img/ro-antes-bano-760.jpg" srcset="img/ro-antes-bano-760.jpg 760w" sizes="(min-width: 900px) calc((100vw - 20rem) * 0.167), 100vw" width="760" height="1024" alt="El baño antes de la remodelación" loading="lazy" decoding="async" data-full="img/ro-antes-bano-760.jpg"></button><figcaption>Baño</figcaption></figure>
 </div></div>
 </section>
 
     <footer class="site-foot grid12">
       <p class="f1">MIR estudio · Bogotá, Colombia</p>
-      <p class="f2">Fotografía de los proyectos: <a href="https://www.instagram.com/simonboschphotographynl/" target="_blank" rel="noopener">Simon Bosch</a></p>
       <p class="f3">© 2026</p>
     </footer>
   </main>
@@ -639,6 +624,17 @@ figcaption {
     render(-1);
     start();
   }
+
+  // Video: plays silently on a loop while it is on screen; still for reduced motion.
+  const still2 = window.matchMedia('(prefers-reduced-motion: reduce)');
+  document.querySelectorAll('video[data-loop]').forEach((v) => {
+    if (still2.matches) { v.removeAttribute('autoplay'); v.controls = true; v.pause(); return; }
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver((es) => es.forEach((e) => {
+        if (e.isIntersecting) { const p = v.play(); if (p && p.catch) p.catch(() => {}); } else v.pause();
+      }), { threshold: 0.2 }).observe(v);
+    }
+  });
 
   let x0 = null;
   dlg.addEventListener('touchstart', (e) => { x0 = e.touches[0].clientX; }, { passive: true });
