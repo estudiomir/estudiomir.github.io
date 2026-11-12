@@ -101,10 +101,12 @@ main { min-width: 0; padding-bottom: 0; }
 .intro { row-gap: 2rem; padding-top: 0.45rem; scroll-margin-top: 1.5rem; }
 .intro h2, .ph-title h2 { font-size: var(--t-s); font-weight: 600; margin: 0 0 0.6rem; }
 .intro p + p { margin-top: 0.8rem; }
-.i-perfil { grid-column: 1 / span 5; }
+.i-photo { grid-column: 1 / span 3; margin: 0; }
+.i-photo img { display: block; width: 100%; height: auto; background: var(--tint); }
+.i-perfil { grid-column: 4 / span 4; }
 .i-perfil p { max-width: 58ch; }
-.i-serv { grid-column: 7 / span 3; }
-.i-contact { grid-column: 10 / span 3; }
+.i-serv { grid-column: 9 / span 2; }
+.i-contact { grid-column: 11 / span 2; }
 
 /* ---------- cover ---------- */
 .cover-frame {
@@ -257,8 +259,9 @@ figcaption {
 
 /* ---------- medium screens ---------- */
 @media (max-width: 1199px) {
-  .i-perfil { grid-column: 1 / span 7; }
-  .i-serv { grid-column: 9 / span 4; }
+  .i-photo { grid-column: 1 / span 4; grid-row: span 2; }
+  .i-perfil { grid-column: 5 / span 8; }
+  .i-serv { grid-column: 5 / span 4; }
   .i-contact { grid-column: 9 / span 4; }
   .ph-title { grid-column: 1 / span 4; }
   .ph-text { grid-column: 5 / span 8; }
@@ -337,6 +340,7 @@ figcaption {
   .slide[data-set="tall"] { display: grid; }
   .cover + .intro { margin-top: 3.5rem; }
   .intro { padding-top: 1.5rem; row-gap: 1.75rem; }
+  .i-photo { grid-column: 1 / span 8; grid-row: auto; }
   .i-perfil { grid-column: 1 / -1; }
   .i-serv { grid-column: 1 / span 6; }
   .i-contact { grid-column: 7 / span 6; }
@@ -439,6 +443,10 @@ figcaption {
 </section>
 
     <section class="intro grid12" id="perfil" aria-label="Perfil">
+      <figure class="i-photo">
+        <img src="img/maria-retrato.jpg" width="1000" height="1250" alt="Maria Restrepo en la cocina del Apartamento DB" loading="lazy" decoding="async">
+        <figcaption>Maria Restrepo</figcaption>
+      </figure>
       <div class="i-perfil">
         <h2>Perfil</h2>
         <p>MIR estudio es un estudio de diseño y remodelación de apartamentos en Bogotá. Cada proyecto busca espacios que perduren en el tiempo, y por eso nuestra prioridad es usar materiales naturales, trabajo artesanal y el cuidado de cada detalle.</p>
